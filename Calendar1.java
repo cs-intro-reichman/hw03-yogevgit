@@ -1,59 +1,48 @@
-/** 
- * Prints the calendars of all the years in the 20th century.
- */
-public class Calendar1 {	
-    // Starting the calendar on 1/1/1900
+public class Calendar {	
+	    // Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;   
 	static int month = 1;
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int nDaysInMonth = 31; // Number of days in January
-		
-
-	public static void main(String args[]) {
-		// Advances the date and the day-of-the-week from 1/1/1900 till 31/12/1999, inclusive.
-	    // Prints each date dd/mm/yyyy in a separate line. If the day is a Sunday, prints "Sunday".
-	    // The following variable, used for debugging purposes, counts how many days were advanced so far.
-	    //int debugDaysCounter = 0; 
-
-		int sundayCounter = 0;
 
 
-		while ( year <= 1999 && month <= 12 && dayOfMonth <= 31){
-				System.out.print(dayOfMonth + "/" + month + "/" + year);
-				if ((dayOfWeek == 1 && dayOfMonth == 1) || dayOfWeek == 1) {
-					System.out.print(" Sunday");
-					sundayCounter++;
-				}
-					
-				System.out.println();
-				advance();
-					
-				}
-		System.out.println("During the 20th century, " + sundayCounter+  " Sundays fell on the first day of the month");
-				
 
-		}
-		
 
-	 
+
 
 	
-	 
+	// Gets a year (command-line argument), and tests the functions isLeapYear and nDaysInMonth.
+	public static void main(String args[]) {
 
+	    int currentYear = Integer.parseInt(args[0]);
 
+		while ( year <= currentYear && month <= 12 && dayOfMonth <= 31){
+					
+					if (year == currentYear) {
 
+					System.out.print(dayOfMonth + "/" + month + "/" + year);
+					if ((dayOfWeek == 1 && dayOfMonth == 1) || dayOfWeek == 1) {
+						System.out.print(" Sunday");
+					}
+					System.out.println();
 
+						
+					}
 
+					
+					
+					advance();
+					
+				
 
+					
+				}
 
+	
+		
+	}
 
-
-
-
-	 // Advances the date (day, month, year) and the day-of-the-week.
-	 // If the month changes, sets the number of days in this month.
-	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
 	 private static void advance() {
 		dayOfMonth++;
 		dayOfWeek++;
@@ -69,9 +58,66 @@ public class Calendar1 {
 			nDaysInMonth = nDaysInMonth(month,year);
 
 		}
-		if (month > 12) {
+			if (month > 12) {
 			year++;
 			month = 1;
 			nDaysInMonth = nDaysInMonth(month,year);
 		}
+
+			
+		
+
+		
 	 } 
+	 
+
+
+	 	private static boolean isLeapYear(int year) {
+	    boolean isLeapYear;
+	    isLeapYear = ((year % 400) == 0);
+	    isLeapYear = isLeapYear || (((year % 4) == 0) && ((year % 100) != 0));
+
+		return isLeapYear;
+
+
+
+	}
+
+		private static int nDaysInMonth(int month, int year) {
+				if ((month == 4) || (month == 6) || (month == 9) || (month == 11) )
+			return 30;
+		else{
+			if ((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || (month == 12))
+			{
+				return 31;
+			}
+			else {
+				if (isLeapYear(year))
+					return 29;
+				else
+					return 28;
+
+			}
+		}
+		
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
