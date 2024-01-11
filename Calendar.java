@@ -1,4 +1,4 @@
-public class Calendar {
+public class Calendar {//yogev
 	// Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;
 	static int month = 1;
@@ -80,5 +80,3 @@ public class Calendar {
 
 	}
 }
-
-
