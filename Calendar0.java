@@ -18,7 +18,7 @@ public class Calendar0 {
 		if (isLeapYear(year) == true)
 			System.out.println(year + " is a leap year");
 		else
-			System.out.println(year + " is a leap year");
+			System.out.println(year + " is a common year");
 	}
 
 	// Tests the nDaysInMonth function.
