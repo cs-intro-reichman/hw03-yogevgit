@@ -22,7 +22,7 @@ public class Calendar1 {
 
 		while (year <= 1999 && month <= 12 && dayOfMonth <= 31) {
 			System.out.print(dayOfMonth + "/" + month + "/" + year);
-			if ((dayOfWeek == 1 && dayOfMonth == 1) || dayOfWeek == 1) {
+			if ((dayOfWeek == 1 && dayOfMonth == 1)) {
 				System.out.print(" Sunday");
 				sundayCounter++;
 			}
