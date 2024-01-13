@@ -1,35 +1,32 @@
-/** String processing exercise 1. */
 public class LowerCase {
-    public static void main(String[] args) {  
-        String str = args[0];
-        System.out.println(lowerCase(str));
+    public static void main(String[] args) {
+        // Check if a command-line argument is provided
+        if (args.length < 1) {
+            System.out.println("Please provide a string as a command-line argument.");
+            return;
+        }
+
+        // The input string is the first command-line argument
+        String input = args[0];
+        String result = "";
+
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+
+            // Check if the character is an uppercase letter
+            if (ch >= 'A' && ch <= 'Z') {
+                // Convert to lowercase
+                ch = (char) (ch + 'a' - 'A');
+            }
+
+            // Append the character to the result
+            result += ch;
+        }
+
+        // Print the result
+        System.out.println(result);
     }
-
-   /**
-    * Returns a string which is identical to the original string, 
-    * except that all the upper-case letters are converted to lower-case letters.
-    * Non-letter characters are left as is.
-    */
-    
-
-
-
-
-
-    public static String lowerCase(String s) {
-        
-        String modifiedString = "";
-
-        for (int i = 0;i < s.length() ;i++ ) {
-            if ((s.charAt(i) >= 'A') && (s.charAt(i) <= 'Z')) {
-                modifiedString += (char) (s.charAt(i) + 32);
-                
-            }
-            else {
-                modifiedString += s.charAt(i);
-            }
-
-            
+}
         }
 
         return modifiedString;
