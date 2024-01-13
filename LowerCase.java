@@ -27,8 +27,4 @@ public class LowerCase {
         System.out.println(result);
     }
 }
-        }
-
-        return modifiedString;
-    }
-}
+        
