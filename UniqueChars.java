@@ -1,28 +1,25 @@
-/** String processing exercise 2. */
 public class UniqueChars {
-    public static void main(String[] args) {  
-        String str = args[0];
-        System.out.println(uniqueChars(str));
-    }
-
-    /**
-     * Returns a string which is identical to the original string, 
-     * except that all the duplicate characters are removed,
-     * unless they are space characters.
-     */
-    public static String uniqueChars(String s) {
-        String modifiedString = "" + s.charAt(0);
-
-        for (int i = 1 ;i < s.length() ;i++ ) {
-
-            if ((modifiedString.indexOf(s.charAt(i)) == -1) || s.charAt(i) == ' ' ) {
-                modifiedString += s.charAt(i);
-                
-            }
-            
+    public static void main(String[] args) {
+        // Check if a command-line argument is provided
+        if (args.length < 1) {
+            System.out.println("Please provide a string as a command-line argument.");
+            return;
         }
 
+        // The input string is the first command-line argument
+        String input = args[0];
+        String result = "";
 
-        return modifiedString;
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+
+            // Check if the character is a space or not already in the result
+            if (ch == ' ' || result.indexOf(ch) == -1) {
+                result += ch;
+            }
+        }
+
+        // Print the result
+        System.out.println(result);
     }
 }
